@@ -42,18 +42,22 @@ $$
 
 1. **Health Score Impact (55%)**
    - Formula:  
-     $$ 0.55 \times \min(100 \times (4 - \text{Avg HS}), 100) $$
+     $$ 
+     0.55 \times \min(100 \times (4 - \text{Avg HS}), 100) 
+     $$
    - **Factor:** *Avg HS* (Average Health Score)
    - **Effect:** Higher health scores lead to a lower OLRS value.
    - **Explanation:**
-     - \( 4 - Avg HS ) ensures that higher scores reduce the contribution.
+     - ( 4 - Avg HS ) ensures that higher scores reduce the contribution.
      - The multiplication by 100 scales the result.
      - The **minimum function** ensures the term does not exceed 100.
      - **Weight:** 55% (largest influence).
 
 2. **Volatility Impact (15%)**
    - Formula:  
-     $$ 0.15 \times \left(\frac{V + V^2}{2} \times 100\right) $$
+     $$ 
+     0.15 \times \left(\frac{V + V^2}{2} \times 100\right)
+     $$
    - **Factor:** *V* (Volatility)
    - **Effect:** Higher volatility increases the OLRS value.
    - **Explanation:**
@@ -63,7 +67,9 @@ $$
 
 3. **Liquidity Impact (20%)**
    - Formula:  
-     $$ 0.2 \times \left(\left(1 - \min\left(\frac{L}{250{,}000}, 1\right)\right)^2 \times 100\right) $$
+     $$ 
+     0.2 \times \left(\left(1 - \min\left(\frac{L}{250{,}000}, 1\right)\right)^2 \times 100\right) 
+     $$
    - **Factor:** *L* (Liquidity)
    - **Effect:** Higher liquidity lowers the OLRS value.
    - **Explanation:**
@@ -101,7 +107,7 @@ $$
   - **HS ≥ 3 → 0** (Safe zone)
   - **1 ≤ HS < 3 → Scaled linearly from 100 to 0**
 - **Liquidity Adjustment:**
-  - Liquidity risk is amplified for volumes **below 1M ADA**.
+  - Liquidity risk is amplified for volumes **below 250k ADA**.
 - **Market Cap Floor:**
   - Ensures MC component doesn’t create extreme outliers for micro-cap tokens.
 - **Market Cap in ADA:**
